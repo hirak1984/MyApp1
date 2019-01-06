@@ -1,0 +1,22 @@
+        <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+  <h:form id="msgForm">   
+   <p:panel id="panel">
+   <p:growl id="growl" showDetail="true"/> 
+    <h3>Hello! Send me a message!</h3>
+    <p:inputTextarea id="textarea1" rows="5" cols="30" value="#{editorView.text}" counter="display" maxlength="300" counterTemplate="{0} characters remaining." autoResize="false" />
+    <br />
+    <h:outputText id="display" />
+     <p:commandButton value="Submit" id="ajax" update="growl" action="#{editorView.submit()}" style="margin-right:20px;" styleClass="ui-priority-primary"  icon="pi pi-save"/>
+    <p:commandButton value="Clear" update="panel" process="@this" style="margin-right:20px;" >
+                <p:resetInput target="panel" />
+            </p:commandButton> 
+    </p:panel>
+  
+</h:form>
+ 
+</ui:composition>

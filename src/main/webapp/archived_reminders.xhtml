@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <style type="text/css">
+.col{
+    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align:left;
+}
+        </style>
+    </h:head>
+ 
+    <h:body>
+ <h:form id="form">
+    <p:dataTable id="reminders"  resizableColumns="true" stickyHeader="true" widgetVar="reminders" var="reminder" value="#{archivedRemindersView.reminders}" editable="false" style="margin-bottom:20px">
+        <f:facet name="header">
+           Completed Reminders
+        </f:facet>
+       
+        <p:column headerText="Text"  styleClass="col">
+               <h:outputText value="#{reminder.text}" style="display: inline;"/>
+        </p:column>
+ 
+        <p:column headerText="Due Date" styleClass="col" style="width:20%;">
+        
+               <h:outputText value="#{reminder.dueDate}" />
+        </p:column>
+    </p:dataTable>
+ 
+ </h:form>
+    </h:body> 
+ 
+</html>

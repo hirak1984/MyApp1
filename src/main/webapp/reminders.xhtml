@@ -1,0 +1,31 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:form>
+	<p:dataTable id="reminders" resizableColumns="true"
+		widgetVar="reminders" var="reminder"
+		value="#{remindersView.reminders}" editable="false"
+		style="margin-bottom:20px">
+		<f:facet name="header">
+            Reminders
+        </f:facet>
+
+		<p:column headerText="Complete" styleClass="col" style="width:7%">
+			<p:commandButton icon="ui-icon-circle-close"
+				action="#{remindersView.delete(reminder)}" update="reminders"
+				style="border-color:#FF0000" />
+		</p:column>
+		<p:column headerText="Text" styleClass="col">
+			<h:outputText value="#{reminder.text}" style="display: inline;" />
+		</p:column>
+
+		<p:column headerText="Due Date" styleClass="col" style="width:20%;">
+
+			<h:outputText value="#{reminder.dueDate}" />
+		</p:column>
+	</p:dataTable>
+	</h:form>
+</ui:composition>

@@ -1,0 +1,9 @@
+.col{
+    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align:left;
+}
+ body .ui-staticmessage.ui-message {
+        width: 100%;
+    }
